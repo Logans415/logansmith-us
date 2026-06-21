@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Logan Smith</title>
+  <meta name="description" content="Blog — Logan Smith.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="/">LS</a>
+    <nav class="nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">My Work</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </header>
+
+  <main class="center-page">
+    <h1>All Posts</h1>
+    <p class="muted">Check back soon — once posts are published, you'll see them here.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Logan Smith · <a href="mailto:Contact@logansmith.us">Contact@logansmith.us</a></p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
