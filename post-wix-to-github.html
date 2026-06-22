@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migrating off Wix to GitHub Pages (without breaking email) — Logan Smith</title>
+  <meta name="description" content="How I moved logansmith.us off a paid site builder to free static hosting on GitHub Pages while keeping custom-domain email intact.">
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="Migrating off Wix to GitHub Pages (without breaking email)">
+  <meta property="og:description" content="Drop the subscription, keep the domain and email, go static.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Logan Smith home"><img src="ls-logo.png" alt=""><span>logan&nbsp;smith</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a class="nav-cta" href="index.html#contact">Get in touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-top">
+    <article class="article container">
+      <a class="back-link" href="blog.html">← all posts</a>
+      <p class="meta">2026-06-21 · 6 min read · migration, dns, hosting</p>
+      <h1>Migrating logansmith.us off Wix to GitHub Pages (without breaking email)</h1>
+
+      <p>My personal site lived on a paid builder for years. It was fine — but it was also <strong>$204/year</strong> for what is essentially a handful of static pages. I'm a security engineer with a GitHub habit and a homelab; paying subscription pricing to host flat HTML started to feel silly. So I moved it to <strong>GitHub Pages</strong> for $0, kept my domain exactly where it was, and — most importantly — never dropped a single email along the way.</p>
+      <p>Here's the playbook, including the gotchas that bit me.</p>
+
+      <h2>The key insight: hosting and email are separate</h2>
+      <p>The thing that makes a migration like this safe is realizing your domain does three independent jobs:</p>
+      <ul>
+        <li><strong>Registration</strong> — who you renew the name with (for me, the registrar, untouched).</li>
+        <li><strong>Website hosting</strong> — what serves the pages (this is the only thing changing).</li>
+        <li><strong>Email routing</strong> — the <code>MX</code> and related records that deliver mail.</li>
+      </ul>
+      <p>Website hosting is controlled by a couple of DNS records (<code>A</code> for the apex, <code>CNAME</code> for <code>www</code>). Email is controlled by completely different records (<code>MX</code>, <code>SPF</code>/<code>TXT</code>, DKIM). As long as you only touch the first set, email keeps working as if nothing happened. That was my hard rule for the whole project.</p>
+
+      <h2>Step 1 — Build and publish first, point DNS last</h2>
+      <p>The cardinal rule of a cutover: <em>never repoint the domain at an empty destination.</em> I built the new static site, pushed it to a public repo, and enabled GitHub Pages so it was already live at the <code>*.github.io</code> URL. Only once I'd confirmed it rendered did I touch DNS.</p>
+
+      <h2>Step 2 — Connect the custom domain</h2>
+      <p>In the repo, GitHub Pages lets you set a custom domain, which writes a <code>CNAME</code> file into the repo. For an apex domain like <code>logansmith.us</code>, GitHub publishes a set of <code>A</code> records to point at:</p>
+      <pre><code>185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153</code></pre>
+      <p>And <code>www</code> becomes a <code>CNAME</code> to <code>&lt;username&gt;.github.io</code>. Crucially, this all stays at my existing DNS host — no nameserver migration, so the email records never move.</p>
+
+      <h2>Step 3 — Change exactly two records</h2>
+      <p>At the DNS host I changed the apex <code>A</code> record(s) to the GitHub IPs and the <code>www</code> <code>CNAME</code> to my GitHub Pages target. I left <strong>everything else</strong> — the <code>MX</code> records, the <code>SPF</code> <code>TXT</code>, and the mail-provider verification records — completely alone. A quick way to prove email is safe before <em>and</em> after:</p>
+      <pre><code>dig +short logansmith.us MX
+dig +short logansmith.us A</code></pre>
+      <p>If the <code>MX</code> answer is identical before and after your change, your mail path is untouched.</p>
+
+      <h2>The gotchas</h2>
+      <p><strong>Browser/OS DNS caching.</strong> Right after the change, my browser still showed the old site. That's not a failure — recursive resolvers and your own machine cache the old records until the TTL expires. Querying an authoritative nameserver directly (or a public resolver like <code>1.1.1.1</code>) shows the truth immediately.</p>
+      <p><strong>HTTPS certificate timing.</strong> GitHub only requests a TLS certificate <em>after</em> your DNS resolves to them. So for a little while you'll see a certificate-name mismatch. If it seems stuck (because an earlier attempt failed while DNS still pointed elsewhere), the reliable fix is to remove the custom domain in the Pages settings and re-add it — that re-triggers a fresh certificate request now that DNS checks out.</p>
+      <p><strong>HSTS surprises.</strong> If your old host set HSTS, your browser will refuse plain HTTP and demand a valid cert — which makes that cert-provisioning window look scarier than it is. It clears itself the moment the certificate lands.</p>
+
+      <h2>The result</h2>
+      <ul>
+        <li>Same domain, same email, zero downtime that any real visitor would notice.</li>
+        <li>Hosting cost went from <strong>$204/year to $0</strong>.</li>
+        <li>The site is now a plain, fast, version-controlled static site I fully own — and rebuilding it became a fun weekend project instead of a chore.</li>
+      </ul>
+      <p>If you've been paying builder pricing to host static pages, this is one of the highest-leverage afternoons you can spend. Just remember the one rule: <strong>touch the website records, never the mail records.</strong></p>
+
+      <p style="margin-top:2rem;"><a class="back-link" href="blog.html">← back to all posts</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Logan Smith · Orange County, CA</span>
+      <span>Built static · hosted on GitHub Pages · <a href="https://github.com/Logans415/logansmith-us" target="_blank" rel="noopener">view source</a></span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

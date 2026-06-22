@@ -3,30 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | Logan Smith</title>
-  <meta name="description" content="Blog — Logan Smith.">
+  <title>Blog — Logan Smith</title>
+  <meta name="description" content="Writing on security, homelab, and automation by Logan Smith.">
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="/">LS</a>
-    <nav class="nav">
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#work">My Work</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="blog.html">Blog</a>
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Logan Smith home">
+        <img src="ls-logo.png" alt="">
+        <span>logan&nbsp;smith</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a class="nav-cta" href="index.html#contact">Get in touch</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="center-page">
-    <h1>All Posts</h1>
-    <p class="muted">Check back soon — once posts are published, you'll see them here.</p>
+  <main class="page-top">
+    <section>
+      <div class="container">
+        <p class="label">writing</p>
+        <h2>Blog</h2>
+        <p class="lead-2">Notes on security, homelab projects, and automation — written to be useful to the next person figuring the same thing out.</p>
+        <div class="post-list">
+          <a class="post-item" href="post-wix-to-github.html">
+            <span class="date">2026-06-21</span>
+            <h3>Migrating logansmith.us off Wix to GitHub Pages (without breaking email)</h3>
+            <p>How I dropped a $204/year subscription, moved to free static hosting, and kept Mailgun/Proton email flowing the whole time.</p>
+            <span class="more">read →</span>
+          </a>
+          <a class="post-item" href="post-welcome.html">
+            <span class="date">2026-06-21</span>
+            <h3>Hello, world (again)</h3>
+            <p>Why I rebuilt this site, and what I plan to write about going forward.</p>
+            <span class="more">read →</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Logan Smith · <a href="mailto:Contact@logansmith.us">Contact@logansmith.us</a></p>
+    <div class="container">
+      <span>© <span id="year"></span> Logan Smith · Orange County, CA</span>
+      <span>Built static · hosted on GitHub Pages · <a href="https://github.com/Logans415/logansmith-us" target="_blank" rel="noopener">view source</a></span>
+    </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -3,79 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Logan Smith</title>
-  <meta name="description" content="Logan Smith — my life, experiences, and skills.">
+  <title>Logan Smith — Security Engineer</title>
+  <meta name="description" content="Logan Smith — IT Security Engineer based in Orange County, CA. Defensive security, automation, homelab, and writing about how it all works.">
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="Logan Smith — Security Engineer">
+  <meta property="og:description" content="Defensive security, automation, and homelab notes from Orange County, CA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://logansmith.us/">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="/">LS</a>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#work">My Work</a>
-      <a href="#contact">Contact</a>
-      <a href="blog.html">Blog</a>
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Logan Smith home">
+        <img src="ls-logo.png" alt="">
+        <span>logan&nbsp;smith</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="hero">
-      <h1>Logan Smith</h1>
-      <p>My life, experiences, and skills</p>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <p class="hero-kicker">$ whoami<span class="blink">_</span></p>
+        <h1>Logan <span class="grad">Smith</span></h1>
+        <div class="typed-wrap"><span class="typed" id="typed"></span><span class="cursor">▋</span></div>
+        <p class="lead">I'm a security engineer focused on defensive security, automation, and making good security practical. I build tools, harden systems, break things on purpose, and write about how it all works.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="blog.html">Read the blog</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
-      <div class="section-inner">
-        <p class="eyebrow">All About Me</p>
-        <h2>My Background</h2>
-        <p>I am a next-generation security professional committed to extracting the most out of technology for the betterment of all while achieving security throughout the organization. Having worked my way up from washing dishes to having lunch with the CEO thrice in my career, I am dedicated to completing my missions and chasing my goals no matter where I start.</p>
-        <p>Having grown up in the age of data breaches, I am personally invested in improving Cybersecurity for every individual and will achieve it through excellent performance. I use this space to showcase my current and past work, to detail upcoming plans, and to make my presence felt in the world. I'm constantly changing and evolving, so what you see here today might not be here tomorrow!</p>
-      </div>
-    </section>
-
-    <section id="getting-to-know" class="alt">
-      <div class="section-inner">
-        <p class="eyebrow">Get To Know Me Better</p>
-        <h2>A Certified Nerd</h2>
-        <p>Welcome to my personal website! I am Logan Smith, passionate about Cybersecurity. I've had a love for Cybersecurity since I first learned to break the rules in Minecraft, and now dedicate my time to furthering my career and personal interest in the field.</p>
-        <p>On my website, you'll find updates on my journey, as well as various ways to contact me. I'm excited to share my knowledge with others and I'm looking forward to hearing about your experiences too. Thanks for visiting, and I hope you'll stop by again soon!</p>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="section-inner">
-        <p class="eyebrow">What I'm Up To</p>
-        <h2>Professional Projects</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Furthering The Boundary</h3>
-            <p class="muted">Attaining the highest level of education.</p>
-          </div>
-          <div class="card">
-            <h3>Exploring The AI Frontier</h3>
-            <p class="muted">Security at every angle.</p>
+      <div class="container">
+        <p class="label">about</p>
+        <h2>Nice to meet you</h2>
+        <div class="about-grid reveal">
+          <div class="headshot"><img src="profile.jpg" alt="Portrait of Logan Smith" width="640" height="640"></div>
+          <div class="about-body">
+            <p>I've been hooked on security since I first figured out how to bend the rules in Minecraft — that itch to understand how systems really work never went away. In 2025 I earned my B.S. in Cybersecurity from Bellevue University, and today I work as an IT Security Engineer, helping protect a large organization and the people who depend on it.</p>
+            <p>I care about the unglamorous parts of security: solid fundamentals, automation that removes human error, and clear writing that helps others level up. Off the clock you'll find me in my homelab, automating things that arguably didn't need automating, and following where AI/ML is taking the field.</p>
+            <ul class="facts">
+              <li><span class="k">role</span><span>IT Security Engineer @ Chipotle</span></li>
+              <li><span class="k">based</span><span>Orange County, California</span></li>
+              <li><span class="k">focus</span><span>Defensive security · automation · homelab</span></li>
+              <li><span class="k">degree</span><span>B.S. Cybersecurity, Bellevue University (2025)</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="alt">
-      <div class="section-inner">
-        <p class="eyebrow">Get In Touch</p>
-        <h2>Contact Me</h2>
-        <ul class="contact-list">
-          <li><span class="label">Location</span> Greater Chicago Area — DuPage County, IL</li>
-          <li><span class="label">Email</span> <a href="mailto:Contact@logansmith.us">Contact@logansmith.us</a></li>
-          <li><span class="label">Mobile</span> <a href="tel:+16303602232">630-360-2232</a></li>
-        </ul>
+    <!-- SKILLS -->
+    <section id="skills" class="section-soft">
+      <div class="container">
+        <p class="label">skills &amp; tools</p>
+        <h2>What I work with</h2>
+        <p class="lead-2">A working toolkit across security, engineering, and infrastructure — the things I reach for to defend, build, and automate.</p>
+        <div class="skill-groups">
+          <div class="skill-card reveal">
+            <h3><span class="dot"></span>Security</h3>
+            <div class="chips">
+              <span class="chip">Threat analysis</span><span class="chip">Digital forensics</span><span class="chip">FTK Imager</span><span class="chip">CyberChef</span><span class="chip">Flipper Zero</span><span class="chip">VPN / Tor</span><span class="chip">Hardening</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3><span class="dot"></span>Engineering</h3>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">Google Apps Script</span><span class="chip">Git / GitHub</span><span class="chip">CI/CD</span><span class="chip">OIDC</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3><span class="dot"></span>Infrastructure</h3>
+            <div class="chips">
+              <span class="chip">Homelab</span><span class="chip">Docker</span><span class="chip">Self-hosting</span><span class="chip">DNS</span><span class="chip">Linux</span><span class="chip">Windows / PowerShell</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3><span class="dot"></span>Exploring</h3>
+            <div class="chips">
+              <span class="chip">AI / ML</span><span class="chip">Automation agents</span><span class="chip">Detection eng.</span><span class="chip">Web apps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <p class="label">experience</p>
+        <h2>The path so far</h2>
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <div class="tl-when">Present</div>
+            <div class="tl-role">IT Security Engineer · <span class="tl-org">Chipotle</span></div>
+            <p class="muted">Defending systems and data at scale — security operations, hardening, and automation that makes the secure path the easy path.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-when">2025</div>
+            <div class="tl-role">B.S. in Cybersecurity · <span class="tl-org">Bellevue University</span></div>
+            <p class="muted">Graduated with a focus on security fundamentals, digital forensics, and the practical side of defending real environments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="section-soft">
+      <div class="container">
+        <p class="label">selected work</p>
+        <h2>Things I build &amp; tinker with</h2>
+        <p class="lead-2">A high-level look — kept deliberately light on internal details.</p>
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="thumb"><img src="hero.jpg" alt="A custom RGB-lit PC and homelab build" loading="lazy"></div>
+            <div class="body">
+              <span class="work-tag">Homelab</span>
+              <h3>Homelab &amp; self-hosting</h3>
+              <p>A personal lab for running services, testing tooling, and learning defensive security hands-on — the best classroom I've found.</p>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <div class="body">
+              <span class="work-tag">Automation</span>
+              <h3>GitHub org orchestration</h3>
+              <p>A multi-org workflow with hardened defaults and scripts for repo creation, promotion, and auditing — security baked in from commit one.</p>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <div class="body">
+              <span class="work-tag">Tooling</span>
+              <h3>Personal automation</h3>
+              <p>Small agents and scripts that quietly handle the repetitive stuff, from local events to savings — automation as a daily habit.</p>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <div class="body">
+              <span class="work-tag">This site</span>
+              <h3>logansmith.us</h3>
+              <p>Rebuilt and migrated off a paid builder to free, fast static hosting — without touching email. <a href="post-wix-to-github.html">Read the writeup →</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG TEASER -->
+    <section id="blog">
+      <div class="container">
+        <p class="label">writing</p>
+        <h2>From the blog</h2>
+        <div class="post-list">
+          <a class="post-item reveal" href="post-wix-to-github.html">
+            <span class="date">2026-06-21</span>
+            <h3>Migrating logansmith.us off Wix to GitHub Pages (without breaking email)</h3>
+            <p>How I dropped a $204/year subscription, moved to free static hosting, and kept Mailgun/Proton email flowing the whole time.</p>
+            <span class="more">read →</span>
+          </a>
+          <a class="post-item reveal" href="post-welcome.html">
+            <span class="date">2026-06-21</span>
+            <h3>Hello, world (again)</h3>
+            <p>Why I rebuilt this site, and what I plan to write about — security notes, homelab adventures, and automation.</p>
+            <span class="more">read →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-soft">
+      <div class="container">
+        <p class="label">contact</p>
+        <h2>Let's connect</h2>
+        <div class="contact-card reveal">
+          <p class="muted">Questions, ideas, or just want to talk security? Email is best — or find me on the links below.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:Contact@logansmith.us">Contact@logansmith.us</a>
+            <a class="btn btn-ghost" href="https://github.com/Logans415" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/logans415/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Logan Smith · <a href="mailto:Contact@logansmith.us">Contact@logansmith.us</a></p>
+    <div class="container">
+      <span>© <span id="year"></span> Logan Smith · Orange County, CA</span>
+      <span>Built static · hosted on GitHub Pages · <a href="https://github.com/Logans415/logansmith-us" target="_blank" rel="noopener">view source</a></span>
+    </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script src="script.js"></script>
 </body>
 </html>

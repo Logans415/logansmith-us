@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, world (again) — Logan Smith</title>
+  <meta name="description" content="Why I rebuilt logansmith.us and what I plan to write about.">
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Logan Smith home"><img src="ls-logo.png" alt=""><span>logan&nbsp;smith</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a class="nav-cta" href="index.html#contact">Get in touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-top">
+    <article class="article container">
+      <a class="back-link" href="blog.html">← all posts</a>
+      <p class="meta">2026-06-21 · 2 min read · meta</p>
+      <h1>Hello, world (again)</h1>
+
+      <p>I rebuilt this site from scratch. The old version was a tired template on a paid builder — fine, but not <em>mine</em>, and not something I'd actually want to point a recruiter or a curious peer at. So I tore it down and rebuilt it as a fast, static, version-controlled site I fully control. (If you're curious how the move went, that's <a href="post-wix-to-github.html">its own post</a>.)</p>
+
+      <p>This blog is the part I'm most excited about. I learn best by writing things down, and the security field is full of stuff that's poorly documented or buried behind jargon. So I'm going to write the posts I wish I'd found.</p>
+
+      <h2>What to expect here</h2>
+      <ul>
+        <li><strong>Security notes</strong> — practical defensive security, fundamentals done well, and lessons from breaking things on purpose.</li>
+        <li><strong>Homelab</strong> — what I'm running, what broke, and what I learned hosting my own services.</li>
+        <li><strong>Automation</strong> — small scripts and agents that remove human error and give me time back.</li>
+        <li><strong>Occasional rabbit holes</strong> — AI/ML, web tinkering, and whatever has my attention.</li>
+      </ul>
+
+      <p>No fixed schedule, no fluff — just things I found worth writing down. If something here helps you, or you want to compare notes, <a href="index.html#contact">reach out</a>. Thanks for stopping by.</p>
+
+      <p style="margin-top:2rem;"><a class="back-link" href="blog.html">← back to all posts</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Logan Smith · Orange County, CA</span>
+      <span>Built static · hosted on GitHub Pages · <a href="https://github.com/Logans415/logansmith-us" target="_blank" rel="noopener">view source</a></span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
