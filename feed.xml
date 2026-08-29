@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logan Smith — Blog</title>
+    <link>https://logansmith.us/blog.html</link>
+    <atom:link href="https://logansmith.us/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Writing on security, homelab, and automation by Logan Smith.</description>
+    <language>en-us</language>
+    <item>
+      <title>Migrating logansmith.us off Wix to GitHub Pages (without breaking email)</title>
+      <link>https://logansmith.us/post-wix-to-github.html</link>
+      <guid>https://logansmith.us/post-wix-to-github.html</guid>
+      <pubDate>Sun, 21 Jun 2026 12:00:00 +0000</pubDate>
+      <description>How I dropped a $204/year subscription, moved to free static hosting, and kept Mailgun/Proton email flowing the whole time.</description>
+    </item>
+    <item>
+      <title>Hello, world (again)</title>
+      <link>https://logansmith.us/post-welcome.html</link>
+      <guid>https://logansmith.us/post-welcome.html</guid>
+      <pubDate>Sun, 21 Jun 2026 11:00:00 +0000</pubDate>
+      <description>Why I rebuilt this site, and what I plan to write about — security notes, homelab adventures, and automation.</description>
+    </item>
+  </channel>
+</rss>

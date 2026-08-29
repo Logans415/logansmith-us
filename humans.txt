@@ -1,0 +1,14 @@
+/* TEAM */
+Owner & builder: Logan Smith
+Role: IT Security Engineer
+Contact: Contact@logansmith.us
+GitHub: https://github.com/Logans415
+LinkedIn: https://www.linkedin.com/in/certified-nerd/
+Location: Orange County, California, USA
+
+/* SITE */
+Language: English
+Doctype: HTML5
+Components: Hand-written HTML, CSS, and JavaScript — no frameworks, no trackers, no external CDNs
+Hosting: GitHub Pages
+Standard: humanstxt.org

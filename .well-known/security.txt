@@ -1,0 +1,8 @@
+# Vulnerability disclosure information for logansmith.us (RFC 9116)
+# Email is preferred for anything sensitive.
+
+Contact: mailto:Contact@logansmith.us
+Contact: https://www.linkedin.com/in/certified-nerd/
+Expires: 2027-08-29T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://logansmith.us/.well-known/security.txt

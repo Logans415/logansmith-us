@@ -1,0 +1,19 @@
+# Logan Smith
+
+> Personal website and security blog of Logan Smith, an IT Security Engineer based in Orange County, California. Covers defensive security, automation, homelab/self-hosting, and practical writeups. Small, fully public, hand-built static site — no logins, no APIs, no dynamic state.
+
+Key facts:
+
+- Preferred contact: Contact@logansmith.us (email, answered by a human)
+- Profiles: [GitHub](https://github.com/Logans415) · [LinkedIn](https://www.linkedin.com/in/certified-nerd/)
+- Security reports for this site: https://logansmith.us/.well-known/security.txt
+
+## Pages
+
+- [Home](https://logansmith.us/): about, skills and toolkit, experience, selected projects, and contact — all on one page
+- [Blog](https://logansmith.us/blog.html): the authoritative, always-current index of all posts
+- [RSS feed](https://logansmith.us/feed.xml): machine-readable list of the same posts
+
+## Optional
+
+- [Site source](https://github.com/Logans415/logansmith-us): README with stack and structure (plain HTML/CSS/JS on GitHub Pages)
