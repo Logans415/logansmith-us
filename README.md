@@ -14,6 +14,7 @@ Plain HTML/CSS/JS — no framework, no build step, **no external CDNs** (system 
 - `profile.jpg`, `hero.jpg`, `ls-logo.png`, `favicon.png`, `apple-touch-icon.png` — image assets
 - `CNAME`, `.nojekyll` — custom domain + serve-as-is
 - `404.html` — custom not-found page (noindex; not in sitemap)
+- `SECURITY.md` — vulnerability disclosure policy (repo-facing twin of `.well-known/security.txt`)
 - `site.webmanifest` — web app manifest (icons/theme)
 - `robots.txt`, `sitemap.xml` — crawler policy + page list for search engines
 - `llms.txt` — curated site overview for AI agents ([llmstxt.org](https://llmstxt.org/))
