@@ -19,7 +19,8 @@ Plain HTML/CSS/JS — no framework, no build step, **no external CDNs** (system 
 - `humans.txt` — the human behind the site ([humanstxt.org](https://humanstxt.org/))
 - `.well-known/security.txt` — vulnerability-disclosure contact ([RFC 9116](https://www.rfc-editor.org/info/rfc9116/))
 
-## Adding a blog post
+## Publishing a post (owner-only)
+This is a personal site — all content is authored by me; there is no submission or contribution process. My publishing checklist:
 1. Copy `post-welcome.html` to `post-<slug>.html`, edit the content.
 2. Add a matching `<a class="post-item">` entry to `blog.html` (and optionally the teaser in `index.html`).
 3. Add an `<item>` to `feed.xml` and update that page's `<lastmod>` in `sitemap.xml`.
