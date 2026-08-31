@@ -1,0 +1,12 @@
+{
+  "name": "Logan Smith — logansmith.us",
+  "short_name": "logansmith.us",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0e14",
+  "theme_color": "#0a0e14",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "any", "type": "image/png" }
+  ]
+}

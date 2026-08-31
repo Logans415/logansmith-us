@@ -11,8 +11,10 @@ Plain HTML/CSS/JS — no framework, no build step, **no external CDNs** (system 
 - `post-*.html` — individual posts
 - `style.css` — dark security/tech theme (teal accent, mono labels)
 - `script.js` — typing effect, mobile nav, scroll-reveal (respects `prefers-reduced-motion`)
-- `profile.jpg`, `hero.jpg`, `ls-logo.png`, `favicon.png` — image assets
+- `profile.jpg`, `hero.jpg`, `ls-logo.png`, `favicon.png`, `apple-touch-icon.png` — image assets
 - `CNAME`, `.nojekyll` — custom domain + serve-as-is
+- `404.html` — custom not-found page (noindex; not in sitemap)
+- `site.webmanifest` — web app manifest (icons/theme)
 - `robots.txt`, `sitemap.xml` — crawler policy + page list for search engines
 - `llms.txt` — curated site overview for AI agents ([llmstxt.org](https://llmstxt.org/))
 - `feed.xml` — RSS feed of blog posts
