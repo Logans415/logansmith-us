@@ -13,6 +13,8 @@ The machine-readable version of this policy is published at
 
 Please include enough detail to reproduce the issue — affected URL or file, what you observed, and what you expected.
 
+The site's [Acceptable Use Policy](https://logansmith.us/acceptable-use.html) covers the rules of engagement for testing (passive only — no load/DoS testing, no social engineering).
+
 ## What to expect
 
 - Acknowledgement of your report, typically within a few days.

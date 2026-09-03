@@ -13,6 +13,7 @@ Key facts:
 - [Home](https://logansmith.us/): about, skills and toolkit, experience, selected projects, and contact — all on one page
 - [Blog](https://logansmith.us/blog.html): the authoritative, always-current index of all posts
 - [RSS feed](https://logansmith.us/feed.xml): machine-readable list of the same posts
+- [Acceptable Use Policy](https://logansmith.us/acceptable-use.html): what the site is for, the rules for automated access and AI crawling, and how to report a security issue
 
 ## Optional
 
