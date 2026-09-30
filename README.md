@@ -33,7 +33,7 @@ This is a personal site — all content is authored by me; there is no submissio
 - All images are **EXIF/GPS-stripped** and re-encoded before commit (the repo is public).
 - No personal phone, home address, or precise location is published — contact is `Contact@logansmith.us` + links.
 - No third-party scripts, fonts, or trackers.
-- `.well-known/security.txt` has a required `Expires` field — review contacts and bump it annually (**next: before 2027-08-29**). Tracked in the workspace backlog (`code/projects/todo-ideas.md`).
+- `.well-known/security.txt` has a required `Expires` field — review contacts and bump it annually (**next: before 2027-08-29**).
 
 ## Hosting / DNS
-GitHub Pages, custom domain `logansmith.us`. DNS managed at the registrar; apex `A` records point to GitHub Pages IPs, `www` is a `CNAME` to `logans415.github.io`. Email (Mailgun/Proton) is independent of hosting — see `../migration-plan.md` and the migration blog post.
+GitHub Pages, custom domain `logansmith.us`. DNS managed at the registrar; apex `A` records point to GitHub Pages IPs, `www` is a `CNAME` to `logans415.github.io`. Email (Mailgun/Proton) is independent of hosting — see the [migration blog post](post-wix-to-github.html).
