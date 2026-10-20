@@ -43,11 +43,11 @@
       <p class="meta"><time datetime="2026-10-20">2026-10-20</time> · 5 min read · AI / security</p>
       <h1>The AI Layer Model: a shared map for AI systems</h1>
 
-      <p>I had a weekend free and decided it was time to really dig into AI. I wanted to fit it into the other areas of my stack, which meant understanding all the pieces and where they belonged.</p>
+      <p>Understanding an AI system starts with knowing which part of the stack we are talking about. Before integrating a tool into an existing stack, we need to know what it does, what it depends on, and where it fits.</p>
 
-      <p>That turned out to be harder than I expected. A handful of new “AI tools” and repos would blow up online, and I would spend a lot of time figuring out what they actually did. Was this a model? Something that ran the model? An agent framework? A whole assistant assembled from other parts?</p>
+      <p>A model, a runtime, an agent framework, and a fully assembled assistant can all be described as an “AI tool.” That label alone doesn't tell us which part of the system we are looking at.</p>
 
-      <p>I needed a reference map. I couldn't find the map I needed, so I started decomposing the stack layer by layer. That became the <strong>AI Layer Model</strong>.</p>
+      <p>I developed the <strong>AI Layer Model</strong> to make those distinctions easier to discuss. It provides a shared reference map for placing components, describing how they fit together, and identifying security controls and ownership.</p>
 
       <p>The model, examples, and a mapping skill are collected in the <a href="https://github.com/Logans415/ai-layer-model">AI Layer Model repository on GitHub</a>. That is the home for the public model and its version history; this post is the introduction.</p>
 
