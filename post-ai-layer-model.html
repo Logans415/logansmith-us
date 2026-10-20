@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Layer Model: a shared map for AI systems — Logan Smith</title>
+  <meta name="description" content="Why I built a nine-layer reference model to place AI tools, understand how they fit together, and approach their security.">
+  <meta name="theme-color" content="#0a0e14">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:title" content="The AI Layer Model: a shared map for AI systems">
+  <meta property="og:description" content="Why I built a nine-layer reference model to place AI tools, understand how they fit together, and approach their security.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://logansmith.us/post-ai-layer-model.html">
+  <meta property="og:image" content="https://logansmith.us/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://logansmith.us/post-ai-layer-model.html">
+  <link rel="alternate" type="application/rss+xml" title="Logan Smith — Blog" href="https://logansmith.us/feed.xml">
+  <link rel="describedby" type="text/markdown" href="https://logansmith.us/llms.txt">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Logan Smith home"><img src="ls-logo.png" alt=""><span>logan&nbsp;smith</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a class="nav-cta" href="index.html#contact">Get in touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-top">
+    <article class="article container">
+      <a class="back-link" href="blog.html">← all posts</a>
+      <p class="meta"><time datetime="2026-10-20">2026-10-20</time> · 5 min read · AI / security</p>
+      <h1>The AI Layer Model: a shared map for AI systems</h1>
+
+      <p>I had a weekend free and decided it was time to really dig into AI. I wanted to fit it into the other areas of my stack, which meant understanding all the pieces and where they belonged.</p>
+
+      <p>That turned out to be harder than I expected. A handful of new “AI tools” and repos would blow up online, and I would spend a lot of time figuring out what they actually did. Was this a model? Something that ran the model? An agent framework? A whole assistant assembled from other parts?</p>
+
+      <p>I needed a reference map. I couldn't find the map I needed, so I started decomposing the stack layer by layer. That became the <strong>AI Layer Model</strong>.</p>
+
+      <p>The model, examples, and a mapping skill are collected in the <a href="https://github.com/Logans415/ai-layer-model">AI Layer Model repository on GitHub</a>. That is the home for the public model and its version history; this post is the introduction.</p>
+
+      <h2>Both answers can be technically correct</h2>
+
+      <p>If I ask where we are and you answer “Earth,” you are technically correct. But that answer doesn't help us find the room we needed. We need a map at a useful scale.</p>
+
+      <p>You can run into the same issue when you ask someone how they are using AI. One person might tell you which agent platform they use. Another might tell you which model they load into Ollama. Both answers are technically correct, but they look at the world of AI at very different scales.</p>
+
+      <p>Even a more specific question can hide that distinction. “What are you using for inference?” might get Qwen as one answer and Ollama as another. Which model are we talking about? What is loading and serving it? A shared map helps us locate the answer and ask the right questions without memorizing every product.</p>
+
+      <h2>Nine layers, grouped into three planes</h2>
+
+      <p>The model separates responsibilities into nine layers. I group those layers into three planes to make the stack easier to work through:</p>
+
+      <ul>
+        <li><strong>Substrate — L1–L2:</strong> the hardware and the runtime that loads and executes the model. Where does the computation happen, and what software runs it?</li>
+        <li><strong>Cognition — L3–L6:</strong> the model, how a call uses it, the context available to it, and the tools it can request. Which model is doing the work? What can it see? What can it do beyond generating text?</li>
+        <li><strong>Systems — L7–L9:</strong> the control loop, orchestration, and interface or delivery. What happens next? How do separate parts coordinate? Where does the person or another system receive the result?</li>
+      </ul>
+
+      <p>Identity, governance, safety, evaluation, and observability cross the entire stack. They don't become someone else's concern just because a diagram puts them off to the side.</p>
+
+      <p>This was inspired by the OSI model's usefulness as a shared reference. The AI layers are their own model, with their own responsibilities. The numbering is a way to organize questions, not a claim that AI follows the networking stack or that every request travels through nine steps in order.</p>
+
+      <h2>Follow one ordinary task</h2>
+
+      <p>Consider an assistant asked to “find a time and draft a meeting invite.”</p>
+
+      <p>We can choose a model at L3 and configure how we use that model at L4. The request and attendee information are context at L5. A calendar lookup is a capability at L6; the returned availability can become context for a later call.</p>
+
+      <p>The L7 control loop decides whether to look something up, draft the invite, or stop. L8 can coordinate separate pieces of work when the design needs that. L9 is where the draft appears for a person to review. The whole thing still runs on hardware and a runtime at L1 and L2.</p>
+
+      <p>A real product can cover several of these responsibilities. An agent is an assembly of pieces across layers. It may bring together a model, context, tools, and a control loop. An individual system may need less than that, or it may coordinate several such assemblies. The map should help us explain those differences.</p>
+
+      <h2>You can't secure what you can't place</h2>
+
+      <p>This is where the map becomes useful to me as a security practitioner. An unsafe model artifact can put the runtime at risk. Malicious retrieved content can redirect behavior. A bad decision can have far too much authority when a tool has permissions it doesn't need. Those problems have different control points, and an attack path can cross several layers.</p>
+
+      <p>“Secure AI for us” may land on one team, or even one person. But that ask can hide runtime operations, application boundaries, data access, identities, tool permissions, and model behavior. The map gives us something concrete to point to when we explain the scope of that work.</p>
+
+      <p>We already have a wealth of expertise in these areas: application security, platform and cloud security, identity, data security, and more. A shared map helps us bring the right people into the conversation and work out who can change a control, who operates the component, and who checks the handoff.</p>
+
+      <h2>Try placing something on it</h2>
+
+      <p>Take one AI system you work with. Place its components on the map, including where a product spans several layers. Follow a real task through it: what information comes in, what gets called, and where does the result go? Then pick a boundary and check whether it holds.</p>
+
+      <p>The repository also includes a <strong>mapping skill</strong> for use with an agent. Give it a tool or system to examine, and it can help work through the responsibilities, dependencies, and layers involved. Its result is a reasoned starting point to check against documentation and your deployment, rather than a security certification.</p>
+
+      <p>This is a reference model and an active discussion. There are other ways to describe AI architecture, and real implementations will keep challenging the boundaries. If a component doesn't fit, or you would draw a boundary differently, I would like to hear why. That's how we can make the map more useful.</p>
+
+      <p><a href="https://github.com/Logans415/ai-layer-model">Read the model, try the mapping skill, and join the discussion on GitHub →</a></p>
+
+      <p>The model and original write-up are available under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>, and the mapping skill is available under MIT. When referring to the model, please credit <strong>Logan Smith</strong>, link to the repository, and identify the version you used. The repository's license notices explain the terms for each part.</p>
+
+      <p><em>These are my own views and work. They do not represent my employer or any related vendors.</em></p>
+
+      <p style="margin-top:2rem;"><a class="back-link" href="blog.html">← back to all posts</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Logan Smith · Orange County, CA</span>
+      <span>Built static · hosted on GitHub Pages · <a href="/acceptable-use.html">acceptable use</a> · <a href="https://github.com/Logans415/logansmith-us" target="_blank" rel="noopener">view source</a></span>
+    </div>
+  </footer>
+  <script src="script.js?v=2"></script>
+</body>
+</html>
