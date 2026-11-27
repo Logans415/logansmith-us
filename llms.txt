@@ -1,6 +1,6 @@
 # Logan Smith
 
-> Personal website and security blog of Logan Smith, an IT Security Engineer based in Orange County, California. Covers defensive security, automation, homelab/self-hosting, and practical writeups. Small, fully public, hand-built static site — no logins, no APIs, no dynamic state.
+> Personal website and security blog of Logan Smith, an Application Security Engineer based in Orange County, California. Covers defensive security, automation, homelab/self-hosting, and practical writeups. Small, fully public, hand-built static site — no logins, no APIs, no dynamic state.
 
 Key facts:
 
