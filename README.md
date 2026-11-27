@@ -3,7 +3,7 @@
 Personal website + security blog for Logan Smith. Static, dependency-free, hosted on **GitHub Pages**.
 
 ## Stack
-Plain HTML/CSS/JS — no framework, no build step, **no external CDNs** (system fonts only, so nothing phones home). Deploys as-is from `main` / root.
+Plain HTML/CSS/JS — no framework, no build step, **no external CDNs** (system fonts only, so nothing phones home). Every push to `main` deploys the repo as-is through `.github/workflows/deploy.yml`, which only adds `health.json`.
 
 ## Structure
 - `index.html` — single-page: hero, about, skills, experience, work, blog teaser, contact
@@ -22,6 +22,8 @@ Plain HTML/CSS/JS — no framework, no build step, **no external CDNs** (system 
 - `feed.xml` — RSS feed of blog posts
 - `humans.txt` — the human behind the site ([humanstxt.org](https://humanstxt.org/))
 - `.well-known/security.txt` — vulnerability-disclosure contact ([RFC 9116](https://www.rfc-editor.org/info/rfc9116/))
+- `health.json` — generated at deploy, not in the repo: `{"status":"ok","commit":"<deployed commit SHA>"}`. Monitors can compare `commit` with `main` to confirm the latest push is live
+- `.github/workflows/deploy.yml` — Pages deploy (GitHub's own actions, pinned to commit SHAs)
 
 ## Publishing a post (owner-only)
 This is a personal site — all content is authored by me; there is no submission or contribution process. My publishing checklist:
@@ -36,4 +38,4 @@ This is a personal site — all content is authored by me; there is no submissio
 - `.well-known/security.txt` has a required `Expires` field — review contacts and bump it annually (**next: before 2027-08-29**).
 
 ## Hosting / DNS
-GitHub Pages, custom domain `logansmith.us`. DNS managed at the registrar; apex `A` records point to GitHub Pages IPs, `www` is a `CNAME` to `logans415.github.io`. Email (Mailgun/Proton) is independent of hosting — see the [migration blog post](post-wix-to-github.html).
+GitHub Pages (source: GitHub Actions), custom domain `logansmith.us`. DNS managed at the registrar; apex `A` records point to GitHub Pages IPs, `www` is a `CNAME` to `logans415.github.io`. Email (Mailgun/Proton) is independent of hosting — see the [migration blog post](post-wix-to-github.html).
